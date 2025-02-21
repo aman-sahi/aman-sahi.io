@@ -3,97 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Google CV</title>
-    
-    <!-- Google Fonts & Material Design Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
-    <!-- Materialize CSS for Google-style UI -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
+    <title>Search Me</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body {
-            font-family: 'Google Sans', sans-serif;
-            background-color: #fff;
+            font-family: 'Roboto', sans-serif;
             text-align: center;
-            padding: 50px;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
         }
-        .google-logo {
-            font-size: 48px;
-            font-weight: bold;
-            color: #4285F4;
+        .search-container {
+            margin-top: 150px;
         }
-        .google-logo span {
-            color: #EA4335;
+        .search-box {
+            width: 500px;
+            padding: 12px;
+            font-size: 18px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            outline: none;
+            box-shadow: none;
         }
-        .google-logo span:nth-child(2) {
-            color: #FBBC05;
-        }
-        .google-logo span:nth-child(3) {
-            color: #34A853;
-        }
-        .google-logo span:nth-child(4) {
-            color: #EA4335;
-        }
-        .google-logo span:nth-child(5) {
-            color: #4285F4;
-        }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-        .card {
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: left;
-        }
-        .btn-google {
+        .search-button {
             background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #357ae8;
+        }
+        .result-box {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #333;
+            display: none;
         }
     </style>
 </head>
 <body>
-
-    <!-- Google-Style Logo -->
-    <div class="google-logo">
-        <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
-    </div>
-    
-    <!-- Profile Section -->
-    <img src="your-photo.jpg" alt="Profile Photo" class="profile-img">
-    <h4>Your Name</h4>
-    <p>Entrepreneur | HealthTech Enthusiast | VC Analyst</p>
-
-    <!-- About Me Section -->
-    <div class="card">
-        <h5>About Me</h5>
-        <p>I am passionate about health tech and venture capital, with experience in startups and consulting.</p>
+    <div class="search-container">
+        <h1 style="color:#4285F4;">Ask About Me</h1>
+        <input type="text" id="searchInput" class="search-box" placeholder="Search...">
+        <br>
+        <button class="search-button" onclick="searchMe()">Search</button>
+        <p class="result-box" id="result"></p>
     </div>
 
-    <!-- Projects Section -->
-    <div class="card">
-        <h5>Projects</h5>
-        <ul>
-            <li><strong>Medily</strong> - Health tech startup</li>
-            <li><strong>Birdie Box</strong> - AI-driven personalized medicine</li>
-            <li><strong>TechSummit 24</strong> - UCL x KCL Tech event</li>
-        </ul>
-    </div>
-
-    <!-- Contact Section -->
-    <div class="card">
-        <h5>Contact</h5>
-        <p>Email: your.email@example.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></p>
-        <a href="mailto:your.email@example.com" class="btn btn-google">Email Me</a>
-    </div>
-
-    <!-- Materialize JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+    <script>
+        function searchMe() {
+            let query = document.getElementById("searchInput").value.toLowerCase();
+            let resultBox = document.getElementById("result");
+            let responses = {
+                "who are you": "I am [Your Name], an entrepreneur and health tech enthusiast.",
+                "what do you do": "I work in health tech, venture capital, and startup consulting.",
+                "where did you study": "I studied at King's College London and ESSEC Business School.",
+                "what projects have you worked on": "I have worked on Medily, Birdie Box, and TechSummit 24.",
+                "how can i contact you": "You can reach me at your.email@example.com or LinkedIn."
+            };
+            
+            if (responses[query]) {
+                resultBox.innerHTML = responses[query];
+                resultBox.style.display = "block";
+            } else {
+                resultBox.innerHTML = "Sorry, I don't have an answer for that.";
+                resultBox.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
