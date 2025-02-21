@@ -13,8 +13,12 @@
             padding: 0;
             background-color: #ffffff;
         }
-        .search-container {
-            margin-top: 150px;
+        .container {
+            margin-top: 15%;
+        }
+        .google-logo {
+            width: 272px;
+            margin-bottom: 20px;
         }
         .search-box {
             width: 500px;
@@ -24,12 +28,13 @@
             border-radius: 24px;
             outline: none;
             box-shadow: none;
+            text-align: center;
         }
         .search-button {
             background-color: #4285F4;
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 10px 20px;
             margin-top: 15px;
             font-size: 16px;
             border-radius: 4px;
@@ -47,9 +52,10 @@
     </style>
 </head>
 <body>
-    <div class="search-container">
-        <h1 style="color:#4285F4;">Ask About Me</h1>
-        <input type="text" id="searchInput" class="search-box" placeholder="Search...">
+    <div class="container">
+        <img class="google-logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
+        <br>
+        <input type="text" id="searchInput" class="search-box" placeholder="Ask me anything...">
         <br>
         <button class="search-button" onclick="searchMe()">Search</button>
         <p class="result-box" id="result"></p>
